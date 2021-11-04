@@ -7,6 +7,7 @@ def pdf_merger(filelist, savepath):
         merger.append(f, import_bookmarks=False)
     merger.write(savepath)
     merger.close()
+    print("finish merge")
 
 
 def pdf_spliter(filename, start_page2, savepath):
@@ -21,6 +22,7 @@ def pdf_spliter(filename, start_page2, savepath):
                   pages=PyPDF2.pagerange.PageRange('{}:'.format(start_page2 - 1)), import_bookmarks=False)
     merger.write(savepath)
     merger.close()
+    print("finish split")
 
 
 def pdf_extractor(filename, start, stop, savepath):
@@ -29,3 +31,4 @@ def pdf_extractor(filename, start, stop, savepath):
                   pages=PyPDF2.pagerange.PageRange('{}:{}:'.format(start - 1, stop)), import_bookmarks=False)
     merger.write(savepath)
     merger.close()
+    print("finish extract")
