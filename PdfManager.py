@@ -14,13 +14,13 @@ def pdf_spliter(filename, start_page2, savepath):
     merger = PyPDF2.PdfFileMerger()
     merger.append(filename,
                   pages=PyPDF2.pagerange.PageRange(':{}'.format(start_page2 - 1)), import_bookmarks=False)
-    merger.write(savepath)
+    merger.write(savepath + '_1.pdf')
     merger.close()
 
     merger = PyPDF2.PdfFileMerger()
     merger.append(filename,
                   pages=PyPDF2.pagerange.PageRange('{}:'.format(start_page2 - 1)), import_bookmarks=False)
-    merger.write(savepath)
+    merger.write(savepath + '_2.pdf')
     merger.close()
     print("finish split")
 
