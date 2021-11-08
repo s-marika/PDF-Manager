@@ -97,7 +97,10 @@ class MainWindow(QWidget):
                 
         self.file_list = QListWidget(self)
         self.file_list.setFrameStyle(1)
-        self.file_list.setSelectionMode(QAbstractItemView.MultiSelection)
+        # self.file_list.setSelectionMode(QAbstractItemView.MultiSelection)
+        self.file_list.setAcceptDrops(True)
+        self.file_list.setDragEnabled(True)
+        self.file_list.setDragDropMode(QAbstractItemView.DragDropMode.InternalMove)
         
         self.merge_frame.setColumnStretch(0, 1)
         self.merge_frame.addWidget(self.file_list, 0, 0, 3, 3)
